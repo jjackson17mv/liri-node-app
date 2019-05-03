@@ -1,7 +1,8 @@
 require("dotenv").config();
 
 var keys = require("./keys.js");
-var Spotify = require('node-spotify-api');
+var spotify = require('node-spotify-api');
+
 var spotify = new Spotify(keys.spotify);
 
 var moment = require('moment'); 
@@ -31,7 +32,18 @@ switch (command) {
 function concertThis(value) {
     axios.get("https://rest.bandsintown.com/artists/" + value + "/events?app_id=trilogy")
     .then(function(response) {
+        console.log(response.data)
+
         for(var i = 0; i < response.data.length; i++) {
+            
+            var dateTime = response.data[i].dateTime;
+            var dateArr = dateTime.split("");
+
+            var concertResults = 
+
+            "\nVenue Name:" + response.data[1].venue.name + 
+            "\nVenue location:" + response.data[1].venue.location +
+            "\nDate of Concert:"
             
         }
     })
