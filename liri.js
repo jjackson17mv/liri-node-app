@@ -40,7 +40,7 @@ function concertThis(value) {
             for (var i = 0; i < response.data.length; i++) {
 
                 var dateTime = response.data[i].dateTime;
-                var dateArr = dateTime.split("");
+                var dataArr = dateTime.split("");
 
                 var concertResults =
 
@@ -61,37 +61,28 @@ function concertThis(value) {
 }
 //------------------------------------SPOTIFY-------------------
 function spotifySong(value) {
-    if (value) {
-        value = "I Want it That Way"
+    if(!value){
+        value = "I want it that way";
     }
     spotify
-        .search({ type: 'track', query: value })
-        .then(function (response) {
-            for (var i = 0; i < 5; i++) {
-                var spotifyResults =
-
-                    "\nArtist(s): " + response.tracks.items[i].artists[0].name +
+    .search({ type: 'track', query: value })
+    .then(function(response) {
+        for (var i = 0; i < 20; i++) {
+            var spotifyResults = 
+                "--------------------------------------------------------------------" +
+                    "\nArtist(s): " + response.tracks.items[i].artists[0].name + 
                     "\nSong Name: " + response.tracks.items[i].name +
                     "\nAlbum Name: " + response.tracks.items[i].album.name +
-                    "\nPreview Link: " + response.tracks.items[i].preview_url;
-                console.log(spotifyResults);
-            }
-
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-
+                    
+                    
+            console.log(spotifyResults);
+        }
+    })
 }
     
 
 //---------------------------MOVIE THIS-----------------------
-function movieThis(value) {
-    if (value) {
-        value = "mr nobody";
 
-    }
-}
 
 function movieThis(value) {
     if(!value){
