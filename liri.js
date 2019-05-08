@@ -40,7 +40,7 @@ function concertThis(value) {
             for (var i = 0; i < response.data.length; i++) {
 
                 var dateTime = response.data[i].dateTime;
-                var dataArr = dateTime.split("");
+                var dataArr = dateTime.splice([1]);
 
                 var concertResults =
 
@@ -67,7 +67,7 @@ function spotifySong(value) {
     spotify
     .search({ type: 'track', query: value })
     .then(function(response) {
-        for (var i = 0; i < 20; i++) {
+        for (var i = 0; i < 8; i++) {
             var spotifyResults = 
                 "--------------------------------------------------------------------" +
                     "\nArtist(s): " + response.tracks.items[i].artists[0].name + 
@@ -114,7 +114,7 @@ function doThis(value) {
         if (error) {
             return console.log(error);
         }
-        var dataArr = data.split(',');
+        var dataArr = data.splice([i]);
         spotifySong(dataArr[0], dataArr[1]);
     })
 }
